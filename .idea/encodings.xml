@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/spring-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-aop/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-aop/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-beans/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-beans/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-boot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-context/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-context/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-webmvc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/spring-webmvc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-total/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
