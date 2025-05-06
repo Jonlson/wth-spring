@@ -127,7 +127,15 @@ public class SpringApplicationContext {
 
     private Object createSingleBean(String className, BeanDefinition beanDefinition)  {
         Object instance;
-        // TODO: 考虑三级缓存
+        // TODO: 考虑三级缓存 :主要是考虑到AOP的情况：前后的对象要一样（
+        //  1. 循环依赖且有AOP情况：提前AOP 但是怎么判断循环依赖？
+        //  2. 要考虑到多个线程依赖同一个bean的情况，这时候需要使用map来判重复：不要过多创建bean
+        //  ）
+        // 1. 先找一级缓存：真正初始化的bean
+        // 2. 再找二级缓存：主要是解决AOP的情况：
+        // 3. 再找三级缓存：主要是解决循环依赖的情况
+
+
 
 
         try {
