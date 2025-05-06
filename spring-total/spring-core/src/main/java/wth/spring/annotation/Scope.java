@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 
 /**
  * @author 86156
+ * 单例 ，多例，请求时创建，会话时创建，全局唯一
+ *
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

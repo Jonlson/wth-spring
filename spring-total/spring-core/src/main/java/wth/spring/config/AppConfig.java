@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@ComponentScan
+@ComponentScan("wth.spring")
 public class AppConfig {
     // 获取ComponentScan的扫描路径
     private String scanPath;
