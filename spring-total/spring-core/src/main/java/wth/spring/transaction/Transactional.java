@@ -5,13 +5,13 @@ package wth.spring.transaction;
  *
  * 0.本质也是一个日志切面
  * 1.用在方法上，表示该方法是一个事务方法
- * 2.搜先是要开启事务，事务管理器新建一个连接conn（为什么不使用jdbc的template）(ThreadLocal<>来拿到同一个相同的数据库连接)
+ * 2.搜先是要开启事务，事务管理器新建一个连接conn（为什么不使用jdbc的template-》要确保是同一个连接）(ThreadLocal<>来拿到同一个相同的数据库连接)
  * （Threadlocla<Map<dataSouce,conn>> ）
  * 3.设置conn.autocommit = false
  * 4. 调用对应方法
  * 5. 调用成功，提交事务
  * 6. 调用失败，回滚事务
- *
+ * 7. 释放连接
  */
 
 

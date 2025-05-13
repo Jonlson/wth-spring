@@ -11,16 +11,20 @@ import wth.spring.annotation.*;
 import wth.spring.bean.BeanDefinition;
 import wth.spring.bean.BeanName;
 import wth.spring.bean.BeanPostProcessor;
+import wth.spring.bean.SingleMap;
 import wth.spring.init.InitializingBean;
 import wth.spring.init.SpringApplication;
 
 import java.io.File;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.net.URL;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentNavigableMap;
 
 import static org.springframework.cglib.proxy.Mixin.createBean;
 
@@ -40,7 +44,8 @@ public class SpringApplicationContext {
 
 
     private ConcurrentHashMap<String, BeanDefinition> beanDefinitionConcurrentHashMap = new ConcurrentHashMap<>();
-
+    private ConcurrentNavigableMap<String, SingleMap> sigleMapConcurrentNavigableMap = new ConcurrentNavigableMap<String, SigleMap>() {
+    };
     // TODO 要知道什么时候进行map的put(就是完成createSingleBean方法之后)
     private ConcurrentHashMap<String, Object> singleBeanMap = new ConcurrentHashMap<>();
     public SpringApplicationContext(Class<?> clazz) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
@@ -159,7 +164,7 @@ public class SpringApplicationContext {
             // 初始化前bean->postConstuct思路：
             //TODO :要执行构造防范：
             /**
-             * 1.先找有没有一个无参的构造方法
+             * 1.先找有没有一个无参的构造方法 ；N
              * 2.再找只有一个的构造方法
              * 3.再找多个构造方法：有没有@AutoWired注解的构造方法
              * */
@@ -190,16 +195,15 @@ public class SpringApplicationContext {
             // PostConstructor:后置初始化bean思路：
 
 
-            // 初始化bean思路：
+            // 初始化bean思路：设置bean的初始化
             if (instance instanceof InitializingBean) {
                 ((InitializingBean) instance).afterPropertiesSet();
-
             }
 
 
 
 
-
+            // destory方法：
             // BeanPostProcessor 后置初始化方法：AOP等 但是会有JDK和cglib的代理对象（）和bean的类型不同:TODO 解决：把代理对象放入对应bean工厂中
             if (BeanPostProcessor.class.isAssignableFrom(aClass)) {
                 BeanPostProcessor beanPostProcessor = (BeanPostProcessor) aClass.getConstructor().newInstance();
@@ -210,7 +214,8 @@ public class SpringApplicationContext {
 
             // AOP的使用：
             /**
-             * 1. 获取到@Aspect注解的类
+             * 1. 获取到@Aspect注解的类:->
+             *
              *
              * 2. 解析@Aspect注解的类中的方法
              *
@@ -221,10 +226,19 @@ public class SpringApplicationContext {
              * 5，放入到bean工厂中：
              *
              * */
+            Annotation annotation = aClass.getAnnotation(Aspect.class);
 
+            // 3, 获取切入点->判断是否为接口：
+            Method[] methods = annotation.getClass().getMethods();
+            Proxy.newProxyInstance(aClass.getClassLoader(), new Class[]{aClass}, (proxy, method, args) -> {});
+            // cglib:
 
 
             // TODO 放入一级缓存： 存储完全初始化完成的 Bean。
+
+            // target = aClass.getConstructor().newInstance();
+
+            //
 
             //
 

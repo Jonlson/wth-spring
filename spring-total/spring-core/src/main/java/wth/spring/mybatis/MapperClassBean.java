@@ -15,7 +15,7 @@ import wth.spring.bean.BeanDefinition;
 import java.util.Map;
 
 /**
- * 优化：实现ImportBeanDefinitionRegistrar接口的registerBeanDefinitionRegistrar方法
+ * 优化：实现ImportBeanDefinitionRegistrar接口的registerBeanDefinitionRegistrar方法:BeanDefinitionRegistry registry
  *
  * */
 @Component
@@ -38,6 +38,9 @@ public class MapperClassBean implements ImportBeanDefinitionRegistrar {
 
     }
 
+    /**
+     * 获取扫描器：
+     * */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 

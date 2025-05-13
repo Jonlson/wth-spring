@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -10,6 +11,10 @@
         <module name="spring-test" />
         <module name="spring-core" />
         <module name="spring-webmvc" />
+        <module name="wth-rocketmq" />
+        <module name="wth-socket" />
+        <module name="wth-redis" />
+        <module name="wth-nacos" />
         <module name="spring-boot" />
         <module name="spring-aop" />
         <module name="spring-web" />

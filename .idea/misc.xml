@@ -6,10 +6,14 @@
       <list>
         <option value="$PROJECT_DIR$/spring-total/pom.xml" />
         <option value="$PROJECT_DIR$/spring-test/pom.xml" />
+        <option value="$PROJECT_DIR$/wth-nacos/pom.xml" />
+        <option value="$PROJECT_DIR$/wth-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/wth-rocketmq/pom.xml" />
+        <option value="$PROJECT_DIR$/wth-socket/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

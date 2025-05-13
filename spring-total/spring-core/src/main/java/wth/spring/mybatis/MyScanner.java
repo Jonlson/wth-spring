@@ -25,16 +25,24 @@ public class MyScanner extends ClassPathBeanDefinitionScanner {
         return beanDefinition.getMetadata().isInterface();
     }
 
+
+    /**
+     * 所以factoryBean的作用就是声明了创建bean的工厂bean，这里我们自定义了一个MybatisFactoryBean。
+     * 在拓展就是实现ImportBeanDefinitionRegistery接口：注册beanDefinition到容器中使得
+     *
+     *
+     * */
     @Override
     protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
-        Set<BeanDefinitionHolder> beanDefinitionHolders = super.doScan(basePackages);
+        Set<BeanDefinitionHolder> beanDefinitionHolders = super.doScan(basePackages);// 过滤操作：
+
+
+
         for (BeanDefinitionHolder beanDefinitionHolder : beanDefinitionHolders) {
             // 自定义逻辑处理
             BeanDefinition beanDefinition = beanDefinitionHolder.getBeanDefinition();
             beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(beanDefinition.getBeanClassName());
             beanDefinition.setBeanClassName(MybatisFactoryBean.class.getName());
-
-
 
         }
 

@@ -11,7 +11,6 @@ import java.io.InputStream;
 
 @Component
 public class MySqlSessionBean {
-
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws IOException {
         InputStream is = Resources.getResourceAsStream("mybatis.xml");
